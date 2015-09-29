@@ -1,30 +1,6 @@
 /* 
  * print.js 0.0.1
  * ECMAScript 5+
- *
- * Resources (based on) : printThis: https://github.com/jasonday/printThis
- *
- * todo
- *   - formValues //preserve input/form values
- *   -
- *
- * Usage:
- *  var b = document.getElementById('selector')
- *  new Print(b, {
- *      debug: false,               * show the iframe for debugging
- *      importCSS: true,            * import page CSS
- *      importStyle: false,         * import style tags
- *      printContainer: true,       * grab outer container as well as the contents of the selector
- *      loadCSS: "path/to/my.css",  * path to additional css file - us an array [] for multiple
- *      pageTitle: "",              * add title to print page
- *      removeInline: false,        * remove all inline styles from print elements
- *      printDelay: 333,            * variable print delay
- *      header: null,               * prefix to html
- *      formValues: true            * preserve input/form values
- *  })
- *
- * Notes:
- *  - the loadCSS will load additional css (with or without @media print) into the iframe, adjusting layout
  */
 
 (function() {
