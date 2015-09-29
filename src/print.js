@@ -83,7 +83,7 @@
         importCSS: true, // import parent page css
         importStyle: false, // import style tags
         printContainer: true, // print outer container/$.selector
-        loadCSS: "", // load an additional css file - load multiple stylesheets with an array []
+        loadCSS: "", // load an additional css file - load multiple stylesheet with an array []
         pageTitle: "", // add title to print page
         removeInline: true, // remove all inline styles
         printDelay: 333, // variable print delay
@@ -119,7 +119,7 @@
 
     fn.expose = function() {
         var opt = this.opt,
-            iframe = this.iframe
+            iframe = document.getElementById(this.iframe.id)
 
 
         // iframe dom
@@ -152,14 +152,14 @@
             }
         }
 
-        // import page stylesheets
+        // import page stylesheet
         if (opt.importCSS) {
             var ls = document.getElementsByTagName('link')
             for (var l = 0; l < ls.length; l++) {
                 if (ls[l].rel === 'stylesheet') {
                     var ol = document.createElement('link')
                     ol.type = 'text/css'
-                    ol.rel = 'stylesheets'
+                    ol.rel = 'stylesheet'
                     ol.href = ls[l].href;
                     ol.media = ls[l].media || 'all'
                     ihead.appendChild(ol)
@@ -188,14 +188,14 @@
                 a.forEach(function(href) {
                     var ll = document.createElement('link')
                     ll.type = 'text/css'
-                    ll.rel = 'stylesheets'
+                    ll.rel = 'stylesheet'
                     ll.href = href;
                     ihead.appendChild(ll)
                 })
             } else {
                 var ll = document.createElement('link')
                 ll.type = 'text/css'
-                ll.rel = 'stylesheets'
+                ll.rel = 'stylesheet'
                 ll.href = opt.loadCSS;
                 ihead.appendChild(ll)
             }
