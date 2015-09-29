@@ -87,7 +87,7 @@
         pageTitle: "", // add title to print page
         removeInline: true, // remove all inline styles
         printDelay: 333, // variable print delay
-        svg: false // the page has svg icon
+        svg: false // import parent page svg icon
     }
 
     var fn = Print.prototype
@@ -95,8 +95,12 @@
     fn.init = function() {
         this.iframe = this.createIframe()
         this.expose()
+        this.print()
     }
 
+    /**
+     * create frame for print
+     */
     fn.createIframe = function() {
         var strFrameName = 'print-' + (new Date()).getTime()
         var pIframe = document.createElement('iframe')
@@ -117,9 +121,12 @@
         return pIframe
     }
 
+    /**
+     * expose options
+     */
     fn.expose = function() {
         var opt = this.opt,
-            iframe = document.getElementById(this.iframe.id)
+            iframe = this.iframe
 
 
         // iframe dom
@@ -143,7 +150,7 @@
         b.href = document.location.protocol + '//' + document.location.host
         ihead.appendChild(b)
 
-        // append svg
+        // import page svg
         if (opt.svg) {
             var c = document.body.children
             for (var s = 0; s < c.length; s++) {
@@ -217,6 +224,11 @@
                 it.setAttribute('style', '')
             }
         }
+    }
+
+    fn.print = function () {
+        var opt = this.opt,
+            iframe = this.iframe
 
         // print
         setTimeout(function() {
