@@ -1,0 +1,21 @@
+{
+  "name": "print",
+  "version": "0.0.1",
+  "authors": [
+    "xwartz <stddup@gmail.com>"
+  ],
+  "description": "Print Part Of A Web Page",
+  "main": "print",
+  "keywords": [
+    "print"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/xwartz/print",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
