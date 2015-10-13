@@ -128,7 +128,7 @@ class Print {
         // import additional stylesheet(s)
         if (opt.loadCSS) {
             if (Array.isArray(opt.loadCSS)) {
-                a.forEach(function(href) {
+                a.forEach((href) => {
                     let ll = document.createElement('link')
                     ll.type = 'text/css'
                     ll.rel = 'stylesheet'
@@ -167,7 +167,7 @@ class Print {
             iframe = this.iframe
 
         // print
-        setTimeout(function() {
+        setTimeout(() => {
             if(/MSIE/.test(iframe.className)){
                 // check if the iframe was created with the ugly hack
                 // and perform another ugly hack out of neccessity
