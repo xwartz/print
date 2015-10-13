@@ -103,7 +103,7 @@ class Print {
                     let ol = document.createElement('link')
                     ol.type = 'text/css'
                     ol.rel = 'stylesheet'
-                    ol.href = ls[l].href;
+                    ol.href = ls[l].href
                     ol.media = ls[l].media || 'all'
                     ihead.appendChild(ol)
                 }
@@ -132,14 +132,14 @@ class Print {
                     let ll = document.createElement('link')
                     ll.type = 'text/css'
                     ll.rel = 'stylesheet'
-                    ll.href = href;
+                    ll.href = href
                     ihead.appendChild(ll)
                 })
             } else {
                 let ll = document.createElement('link')
                 ll.type = 'text/css'
                 ll.rel = 'stylesheet'
-                ll.href = opt.loadCSS;
+                ll.href = opt.loadCSS
                 ihead.appendChild(ll)
             }
         }
@@ -171,17 +171,19 @@ class Print {
             if(/MSIE/.test(iframe.className)){
                 // check if the iframe was created with the ugly hack
                 // and perform another ugly hack out of neccessity
-                window.frames[iframe.name].focus();
+                window.frames[iframe.name].focus()
                 let script = document.createElement('script')
                 script.innerHTML = 'window.print()'
                 ihead.append(script)
             } else {
                 // proper method
-                iframe.contentWindow.focus();
-                iframe.contentWindow.print();
+                iframe.contentWindow.focus()
+                iframe.contentWindow.print()
             }
 
-        }, opt.printDelay);
+        }, opt.printDelay)
     }
 
 }
+
+export default Print
