@@ -20,12 +20,11 @@
     "url": "https://github.com/xwartz/print/issues"
   },
   "homepage": "https://github.com/xwartz/print",
-  "dependencies": {
-    "mocha": "~2.3.3",
-    "jsdom": "~6.5.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel": "^5.8.23",
+    "jsdom": "^6.5.1",
+    "mocha": "^2.3.3",
     "mocha-traceur": "~2.1.0"
   }
 }
