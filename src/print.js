@@ -187,4 +187,4 @@ class Print {
 
 }
 
-// export default Print
+export default Print
