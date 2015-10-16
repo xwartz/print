@@ -4,7 +4,8 @@
   "description": "Print Part Of A Web Page",
   "main": "print.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:mocha-traceur",
+    "build": "babel src/print.js -o  dist/print.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/xwartz/print/issues"
   },
-  "homepage": "https://github.com/xwartz/print"
+  "homepage": "https://github.com/xwartz/print",
+  "dependencies": {
+    "mocha": "~2.3.3",
+    "jsdom": "~6.5.1"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "mocha-traceur": "~2.1.0"
+  }
 }

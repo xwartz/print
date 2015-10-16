@@ -5,10 +5,6 @@
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34,12 +30,19 @@ var Print = (function () {
         this.init();
     }
 
+    // export default Print
+
     _createClass(Print, [{
         key: "init",
         value: function init() {
             this.iframe = this.createIframe();
-            this.expose();
-            this.print();
+
+            var _this = this;
+
+            this.iframe.onload = function () {
+                _this.expose();
+            };
+            _this.print();
         }
 
         /**
@@ -101,6 +104,7 @@ var Print = (function () {
             // add base tag to ensure elements use the parent domain
             var b = document.createElement('base');
             b.href = document.location.protocol + '//' + document.location.host;
+
             ihead.appendChild(b);
 
             // import page svg
@@ -203,6 +207,3 @@ var Print = (function () {
 
     return Print;
 })();
-
-exports["default"] = Print;
-module.exports = exports["default"];

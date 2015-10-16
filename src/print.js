@@ -84,6 +84,7 @@ class Print {
         // add base tag to ensure elements use the parent domain
         let b = document.createElement('base')
         b.href = document.location.protocol + '//' + document.location.host
+
         ihead.appendChild(b)
 
         // import page svg
@@ -186,4 +187,4 @@ class Print {
 
 }
 
-export default Print
+// export default Print
