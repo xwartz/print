@@ -5,6 +5,10 @@
 
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30,19 +34,12 @@ var Print = (function () {
         this.init();
     }
 
-    // export default Print
-
     _createClass(Print, [{
         key: "init",
         value: function init() {
             this.iframe = this.createIframe();
-
-            var _this = this;
-
-            this.iframe.onload = function () {
-                _this.expose();
-            };
-            _this.print();
+            this.expose();
+            this.print();
         }
 
         /**
@@ -207,3 +204,7 @@ var Print = (function () {
 
     return Print;
 })();
+
+window.Print = Print;
+exports["default"] = Print;
+module.exports = exports["default"];

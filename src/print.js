@@ -186,5 +186,5 @@ class Print {
     }
 
 }
-
+window.Print = Print
 export default Print

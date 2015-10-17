@@ -5,7 +5,7 @@
   "main": "print.js",
   "scripts": {
     "test": "mocha --compilers js:mocha-traceur",
-    "build": "babel src/print.js -o  dist/print.js"
+    "build": "babel -d dist src"
   },
   "repository": {
     "type": "git",
