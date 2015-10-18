@@ -5,6 +5,7 @@ Resources (based on) : printThis: https://github.com/jasonday/printThis
 
 ## Usage:
 ```js
+  import Print from 'print'
   var b = document.getElementById('selector')
   new Print(b, {
       debug: false, // show the iframe for debugging
