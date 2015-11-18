@@ -26,8 +26,11 @@ class Print {
 
     init() {
         this.iframe = this.createIframe()
-        this.expose()
-        this.print()
+        // iframe.ready() and iframe.load were inconsistent between browsers
+        setTimeout(() => {
+            this.expose()
+            this.print()
+        }, 333)
     }
 
     /**
