@@ -26,7 +26,7 @@ class Print {
     }
 
     firefoxHack() {
-        if(/firefox/i.test(navigator.userAgent)) {
+        if(this.opt.svg && /firefox/i.test(navigator.userAgent)) {
             this.opt.printDelay = 333 // need delay
         }
     }
