@@ -21,7 +21,14 @@ class Print {
     constructor(element, options) {
         this.element = element
         this.opt = Object.assign(defaults, options)
+        this.firefoxHack()
         this.init()
+    }
+
+    firefoxHack() {
+        if(/firefox/i.test(navigator.userAgent)) {
+            this.opt.printDelay = 333 // need delay
+        }
     }
 
     init() {
