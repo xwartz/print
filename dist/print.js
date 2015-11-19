@@ -22,8 +22,8 @@ var defaults = {
     pageTitle: "", // add title to print page
     removeInline: true, // remove all inline styles
     printDelay: 333, // variable print delay
-    svg: false, // import parent page svg icon
-    doctypeString: '<!DOCTYPE html>' // document type
+    svg: false // import parent page svg icon
+    // doctypeString: '<!DOCTYPE html>' // document type
 };
 
 var Print = (function () {
@@ -32,10 +32,18 @@ var Print = (function () {
 
         this.element = element;
         this.opt = Object.assign(defaults, options);
+        this.firefoxHack();
         this.init();
     }
 
     _createClass(Print, [{
+        key: "firefoxHack",
+        value: function firefoxHack() {
+            if (this.opt.svg && /firefox/i.test(navigator.userAgent)) {
+                this.opt.printDelay = 333; // need delay
+            }
+        }
+    }, {
         key: "init",
         value: function init() {
             var _this = this;
@@ -74,6 +82,17 @@ var Print = (function () {
 
             document.body.appendChild(pIframe);
 
+            // Add doctype to fix the style difference between printing and render
+            // if(opt.doctypeString){
+            var win, doc;
+            win = iframe;
+            win = win.contentWindow || win.contentDocument || win;
+            doc = win.document || win.contentDocument || win;
+            doc.open();
+            // doc.write(opt.doctypeString)
+            doc.close();
+            // }
+
             return pIframe;
         }
 
@@ -98,23 +117,6 @@ var Print = (function () {
             iframe.style.top = '0';
             iframe.style["with"] = '100%';
             iframe.style.height = '100%';
-
-            // Add doctype to fix the style difference between printing and render
-            if (opt.doctypeString) {
-                var win, doc;
-                win = iframe;
-                win = win.contentWindow || win.contentDocument || win;
-                doc = win.document || win.contentDocument || win;
-                doc.open();
-                doc.write(doctype);
-                doc.close();
-            }
-
-            // fix svg render
-            if (iframe.contentDocument) {
-                iframe.contentDocument.open();
-                iframe.contentDocument.close();
-            }
 
             // hide iframe if not in debug mode
             if (!opt.debug) {
