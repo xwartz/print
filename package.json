@@ -23,6 +23,7 @@
   "dependencies": {},
   "devDependencies": {
     "babel": "^5.8.23",
+    "babel-plugin-transform-es2015-modules-umd": "^6.1.18",
     "jsdom": "^6.5.1",
     "mocha": "^2.3.3",
     "mocha-traceur": "~2.1.0"
